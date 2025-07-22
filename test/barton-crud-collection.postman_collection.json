@@ -1,0 +1,112 @@
+{
+  "info": {
+    "_postman_id": "barton-crud-collection-001",
+    "name": "Barton Backend CRUD",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Sedes",
+      "item": [
+        { "name": "Listar Sedes", "request": { "method": "GET", "url": "{{baseUrl}}/sedes" } },
+        { "name": "Obtener Sede", "request": { "method": "GET", "url": "{{baseUrl}}/sedes/:id" } },
+        { "name": "Crear Sede", "request": { "method": "POST", "url": "{{baseUrl}}/sedes", "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Sede Central\",\n  \"direccion\": \"Av. Principal 123\",\n  \"telefono\": \"999888777\",\n  \"correo\": \"sede@colegio.com\"\n}" } } },
+        { "name": "Actualizar Sede", "request": { "method": "PUT", "url": "{{baseUrl}}/sedes/:id", "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Sede Actualizada\"\n}" } } },
+        { "name": "Eliminar Sede", "request": { "method": "DELETE", "url": "{{baseUrl}}/sedes/:id" } }
+      ]
+    },
+    {
+      "name": "Niveles Educativos",
+      "item": [
+        { "name": "Listar Niveles", "request": { "method": "GET", "url": "{{baseUrl}}/niveles-educativos" } },
+        { "name": "Obtener Nivel", "request": { "method": "GET", "url": "{{baseUrl}}/niveles-educativos/:id" } },
+        { "name": "Crear Nivel", "request": { "method": "POST", "url": "{{baseUrl}}/niveles-educativos", "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Primaria\"\n}" } } },
+        { "name": "Actualizar Nivel", "request": { "method": "PUT", "url": "{{baseUrl}}/niveles-educativos/:id", "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Secundaria\"\n}" } } },
+        { "name": "Eliminar Nivel", "request": { "method": "DELETE", "url": "{{baseUrl}}/niveles-educativos/:id" } }
+      ]
+    },
+    {
+      "name": "Usuarios",
+      "item": [
+        { "name": "Listar Usuarios", "request": { "method": "GET", "url": "{{baseUrl}}/usuarios" } },
+        { "name": "Obtener Usuario", "request": { "method": "GET", "url": "{{baseUrl}}/usuarios/:id" } },
+        { "name": "Crear Usuario", "request": { "method": "POST", "url": "{{baseUrl}}/usuarios", "body": { "mode": "raw", "raw": "{\n  \"nombre_completo\": \"Juan Pérez\",\n  \"correo\": \"juan@correo.com\",\n  \"telefono\": \"999111222\",\n  \"dni\": \"12345678\",\n  \"password\": \"123456\",\n  \"tipo_usuario\": \"padre\"\n}" } } },
+        { "name": "Actualizar Usuario", "request": { "method": "PUT", "url": "{{baseUrl}}/usuarios/:id", "body": { "mode": "raw", "raw": "{\n  \"nombre_completo\": \"Juan Actualizado\"\n}" } } },
+        { "name": "Eliminar Usuario", "request": { "method": "DELETE", "url": "{{baseUrl}}/usuarios/:id" } }
+      ]
+    },
+    {
+      "name": "Perfiles Usuario",
+      "item": [
+        { "name": "Listar Perfiles", "request": { "method": "GET", "url": "{{baseUrl}}/perfiles" } },
+        { "name": "Obtener Perfil", "request": { "method": "GET", "url": "{{baseUrl}}/perfiles/:id" } },
+        { "name": "Crear Perfil", "request": { "method": "POST", "url": "{{baseUrl}}/perfiles", "body": { "mode": "raw", "raw": "{\n  \"usuario_id\": \"{id_usuario}\",\n  \"direccion\": \"Calle Falsa 123\",\n  \"fecha_nacimiento\": \"2000-01-01\",\n  \"ocupacion\": \"Ingeniero\",\n  \"genero\": \"masculino\",\n  \"sede_preferida\": \"{id_sede}\"\n}" } } },
+        { "name": "Actualizar Perfil", "request": { "method": "PUT", "url": "{{baseUrl}}/perfiles/:id", "body": { "mode": "raw", "raw": "{\n  \"direccion\": \"Calle Nueva 456\"\n}" } } },
+        { "name": "Eliminar Perfil", "request": { "method": "DELETE", "url": "{{baseUrl}}/perfiles/:id" } }
+      ]
+    },
+    {
+      "name": "Requisitos Matrícula",
+      "item": [
+        { "name": "Listar Requisitos", "request": { "method": "GET", "url": "{{baseUrl}}/requisitos" } },
+        { "name": "Obtener Requisito", "request": { "method": "GET", "url": "{{baseUrl}}/requisitos/:id" } },
+        { "name": "Crear Requisito", "request": { "method": "POST", "url": "{{baseUrl}}/requisitos", "body": { "mode": "raw", "raw": "{\n  \"nivel_id\": 1,\n  \"nombre\": \"Partida de nacimiento\",\n  \"descripcion\": \"Documento original\",\n  \"obligatorio\": true\n}" } } },
+        { "name": "Actualizar Requisito", "request": { "method": "PUT", "url": "{{baseUrl}}/requisitos/:id", "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Requisito Actualizado\"\n}" } } },
+        { "name": "Eliminar Requisito", "request": { "method": "DELETE", "url": "{{baseUrl}}/requisitos/:id" } }
+      ]
+    },
+    {
+      "name": "Documentos Usuario",
+      "item": [
+        { "name": "Listar Documentos", "request": { "method": "GET", "url": "{{baseUrl}}/documentos" } },
+        { "name": "Obtener Documento", "request": { "method": "GET", "url": "{{baseUrl}}/documentos/:id" } },
+        { "name": "Crear Documento", "request": { "method": "POST", "url": "{{baseUrl}}/documentos", "body": { "mode": "raw", "raw": "{\n  \"usuario_id\": \"{id_usuario}\",\n  \"requisito_id\": 1,\n  \"url_archivo\": \"https://misarchivos.com/archivo.pdf\",\n  \"estado\": \"pendiente\"\n}" } } },
+        { "name": "Actualizar Documento", "request": { "method": "PUT", "url": "{{baseUrl}}/documentos/:id", "body": { "mode": "raw", "raw": "{\n  \"estado\": \"aprobado\"\n}" } } },
+        { "name": "Eliminar Documento", "request": { "method": "DELETE", "url": "{{baseUrl}}/documentos/:id" } }
+      ]
+    },
+    {
+      "name": "Matrículas",
+      "item": [
+        { "name": "Listar Matrículas", "request": { "method": "GET", "url": "{{baseUrl}}/matriculas" } },
+        { "name": "Obtener Matrícula", "request": { "method": "GET", "url": "{{baseUrl}}/matriculas/:id" } },
+        { "name": "Crear Matrícula", "request": { "method": "POST", "url": "{{baseUrl}}/matriculas", "body": { "mode": "raw", "raw": "{\n  \"usuario_id\": \"{id_usuario}\",\n  \"nivel_id\": 1,\n  \"sede_id\": \"{id_sede}\",\n  \"estado\": \"en_proceso\"\n}" } } },
+        { "name": "Actualizar Matrícula", "request": { "method": "PUT", "url": "{{baseUrl}}/matriculas/:id", "body": { "mode": "raw", "raw": "{\n  \"estado\": \"completado\"\n}" } } },
+        { "name": "Eliminar Matrícula", "request": { "method": "DELETE", "url": "{{baseUrl}}/matriculas/:id" } }
+      ]
+    },
+    {
+      "name": "Pagos",
+      "item": [
+        { "name": "Listar Pagos", "request": { "method": "GET", "url": "{{baseUrl}}/pagos" } },
+        { "name": "Obtener Pago", "request": { "method": "GET", "url": "{{baseUrl}}/pagos/:id" } },
+        { "name": "Crear Pago", "request": { "method": "POST", "url": "{{baseUrl}}/pagos", "body": { "mode": "raw", "raw": "{\n  \"matricula_id\": \"{id_matricula}\",\n  \"monto\": 150.00,\n  \"metodo_pago\": \"niubiz\",\n  \"estado\": \"pendiente\"\n}" } } },
+        { "name": "Actualizar Pago", "request": { "method": "PUT", "url": "{{baseUrl}}/pagos/:id", "body": { "mode": "raw", "raw": "{\n  \"estado\": \"completado\"\n}" } } },
+        { "name": "Eliminar Pago", "request": { "method": "DELETE", "url": "{{baseUrl}}/pagos/:id" } }
+      ]
+    },
+    {
+      "name": "Eventos Matrícula",
+      "item": [
+        { "name": "Listar Eventos", "request": { "method": "GET", "url": "{{baseUrl}}/eventos" } },
+        { "name": "Obtener Evento", "request": { "method": "GET", "url": "{{baseUrl}}/eventos/:id" } },
+        { "name": "Crear Evento", "request": { "method": "POST", "url": "{{baseUrl}}/eventos", "body": { "mode": "raw", "raw": "{\n  \"titulo\": \"Inicio de matrícula\",\n  \"descripcion\": \"Apertura del proceso\",\n  \"fecha_inicio\": \"2024-08-01T08:00:00.000Z\",\n  \"fecha_fin\": \"2024-08-10T18:00:00.000Z\",\n  \"sede_id\": \"{id_sede}\",\n  \"nivel_id\": 1\n}" } } },
+        { "name": "Actualizar Evento", "request": { "method": "PUT", "url": "{{baseUrl}}/eventos/:id", "body": { "mode": "raw", "raw": "{\n  \"titulo\": \"Evento Actualizado\"\n}" } } },
+        { "name": "Eliminar Evento", "request": { "method": "DELETE", "url": "{{baseUrl}}/eventos/:id" } }
+      ]
+    },
+    {
+      "name": "Notificaciones",
+      "item": [
+        { "name": "Listar Notificaciones", "request": { "method": "GET", "url": "{{baseUrl}}/notificaciones" } },
+        { "name": "Obtener Notificación", "request": { "method": "GET", "url": "{{baseUrl}}/notificaciones/:id" } },
+        { "name": "Crear Notificación", "request": { "method": "POST", "url": "{{baseUrl}}/notificaciones", "body": { "mode": "raw", "raw": "{\n  \"usuario_id\": \"{id_usuario}\",\n  \"titulo\": \"Bienvenido\",\n  \"mensaje\": \"Tu registro fue exitoso\"\n}" } } },
+        { "name": "Actualizar Notificación", "request": { "method": "PUT", "url": "{{baseUrl}}/notificaciones/:id", "body": { "mode": "raw", "raw": "{\n  \"leido\": true\n}" } } },
+        { "name": "Eliminar Notificación", "request": { "method": "DELETE", "url": "{{baseUrl}}/notificaciones/:id" } }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:4000" }
+  ]
+} 
